@@ -90,11 +90,11 @@ pip install -r requirements.txt
 
 ### Required Packages
 ```txt
-numpy>=1.21.0
-pandas>=1.3.0
-scikit-learn>=1.0.0
-matplotlib>=3.4.0
-seaborn>=0.11.0
+numpy>=2.2.0
+pandas>=2.2.0
+scikit-learn>=1.6.0
+matplotlib>=3.9.0
+seaborn>=0.12.0
 ```
 
 ---
