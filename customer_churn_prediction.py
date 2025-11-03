@@ -402,7 +402,7 @@ def main():
     system.get_feature_importance(feature_names)
     
     print("\n" + "="*60)
-    print("✅ ANALYSIS COMPLETE")
+    print(" ANALYSIS COMPLETE")
     print("="*60)
     print("\nThis system can be deployed to:")
     print("  • Identify high-risk customers daily")
