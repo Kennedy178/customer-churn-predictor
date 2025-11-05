@@ -41,7 +41,7 @@ class ChurnPredictionSystem:
         Generate realistic telecom customer data
         Based on real-world churn patterns
         """
-        print("📊 Generating synthetic customer data...")
+        print("Generating synthetic customer data...")
         
         # Customer demographics
         age = np.random.normal(45, 15, n_samples).clip(18, 80)
@@ -94,7 +94,7 @@ class ChurnPredictionSystem:
             'Churn': churn
         })
         
-        print(f"✅ Generated {n_samples} customer records")
+        print(f" Generated {n_samples} customer records")
         print(f"   Churn Rate: {churn.mean()*100:.1f}%")
         
         return df
@@ -103,7 +103,7 @@ class ChurnPredictionSystem:
         """
         Create advanced features that capture business insights
         """
-        print("\n🔧 Engineering advanced features...")
+        print("\n Engineering advanced features...")
         
         df = df.copy()
         
@@ -131,7 +131,7 @@ class ChurnPredictionSystem:
             df['Tenure'] / df['Tenure'].max() * 0.3
         )
         
-        print(f"✅ Created {len(df.columns) - 10} new features")
+        print(f"Created {len(df.columns) - 10} new features")
         
         return df
     
@@ -139,7 +139,7 @@ class ChurnPredictionSystem:
         """
         Prepare data for modeling with proper encoding
         """
-        print("\n📋 Preparing data for modeling...")
+        print("\n Preparing data for modeling...")
         
         df = df.copy()
         
@@ -169,7 +169,7 @@ class ChurnPredictionSystem:
         X_train_scaled = self.scaler.fit_transform(X_train)
         X_test_scaled = self.scaler.transform(X_test)
         
-        print(f"✅ Training set: {X_train.shape[0]} samples")
+        print(f"Training set: {X_train.shape[0]} samples")
         print(f"   Test set: {X_test.shape[0]} samples")
         
         return X_train_scaled, X_test_scaled, y_train, y_test, X_train.columns
@@ -178,7 +178,7 @@ class ChurnPredictionSystem:
         """
         Train multiple models and compare performance
         """
-        print("\n🤖 Training multiple models...")
+        print("\n Training multiple models...")
         
         # Define models
         models = {
@@ -213,7 +213,7 @@ class ChurnPredictionSystem:
         best_model_name = max(results, key=lambda x: results[x]['cv_mean'])
         self.best_model = results[best_model_name]['model']
         
-        print(f"\n🏆 Best Model: {best_model_name}")
+        print(f"\n Best Model: {best_model_name}")
         
         return results
     
@@ -221,7 +221,7 @@ class ChurnPredictionSystem:
         """
         Hyperparameter tuning for the best model
         """
-        print("\n⚡ Optimizing best model hyperparameters...")
+        print("\n Optimizing best model hyperparameters...")
         
         if isinstance(self.best_model, RandomForestClassifier):
             param_grid = {
@@ -251,7 +251,7 @@ class ChurnPredictionSystem:
         grid_search.fit(X_train, y_train)
         self.best_model = grid_search.best_estimator_
         
-        print(f"✅ Best parameters: {grid_search.best_params_}")
+        print(f" Best parameters: {grid_search.best_params_}")
         print(f"   Best CV AUC: {grid_search.best_score_:.4f}")
         
         return self.best_model
@@ -260,7 +260,7 @@ class ChurnPredictionSystem:
         """
         Comprehensive model evaluation
         """
-        print("\n📊 Evaluating model performance...")
+        print("\n Evaluating model performance...")
         
         y_pred = self.best_model.predict(X_test)
         y_pred_proba = self.best_model.predict_proba(X_test)[:, 1]
